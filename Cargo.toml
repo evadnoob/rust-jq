@@ -1,12 +1,12 @@
 
 [package]
-name = "rust-jq"
+name = "libjq"
 version = "0.1.0"
 authors = [ "David Boon <david.boon@gmail.com" ]
 
-description = "Rust bindinds for lib-jq"
+description = "Rust bindinds for libjq"
 readme = "README.md"
-keywords = ["jq", "json"]
+keywords = ["jq", "json", "libjq"]
 
 homepage = "https://github.com/evadnoob/rust-jq"
 repository = "https://github.com/evadnoob/rust-jq"
