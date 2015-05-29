@@ -1,11 +1,8 @@
 
-
-
 [package]
 name = "rust-jq"
 version = "0.1.0"
 authors = [ "David Boon <david.boon@gmail.com" ]
-
 
 description = "Rust bindinds for lib-jq"
 readme = "README.md"
@@ -17,7 +14,10 @@ documentation = "https://evadnoob.github.io/rust-jq/"
 
 license = "MIT"
 
-[dependencies]
+[lib]
+name = "libjq"
+crate-type = ["staticlib"]
+
 
 
 
