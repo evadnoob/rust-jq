@@ -18,6 +18,8 @@ license = "MIT"
 name = "libjq"
 crate-type = ["staticlib"]
 
+[dependencies]
+libc = "*"
 
 
 
