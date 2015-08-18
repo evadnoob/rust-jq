@@ -24,10 +24,10 @@ mod jq {
 
     pub fn compile_args(state:  *mut jq_state, expression: String) {
         unsafe {
-            let arg2 = CString::new(expression).unwrap();
+            let expression_cstr = CString::new(expression).unwrap();
             let mut ptr = super::ffi_jq::jq_compile_args(
                 state,
-                arg2.as_ptr(),
+                expression_cstr.as_ptr(),
                 ffi_jq::jv_array());
         }
     }
