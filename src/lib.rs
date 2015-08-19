@@ -37,18 +37,19 @@ mod jq {
 
     pub fn start(state: *mut jq_state, input: String) {
         unsafe {
+            let flags = 0;
             let input_ptr = CString::new(input).unwrap();
             let mut ptr = ffi_jq::jv_parse(input_ptr.as_ptr());
         
             // void jq_start(jq_state *jq, jv input, int flags) {
             //ffi_jq::jq_start(state, ptr, ffi_jq::JV_PRINT_PRETTY as libc::c_uint)  
-            ffi_jq::jq_start(state, ptr, 0)  
+            ffi_jq::jq_start(state, ptr, flags)  
         }
     }
 
-    pub fn next(state: *mut jq_state) {
+    pub fn next(state: *mut jq_state) -> ffi_jq::Struct_Unnamed3 {
         unsafe {
-            ffi_jq::jq_next(state);
+            ffi_jq::jq_next(state)
         }
     }
 }
@@ -71,7 +72,7 @@ mod test {
         println!("started {:?}", started);
 
         let mut next = jq::next(jq_state); 
-        println!("next {:?}", next);
+        //println!("next {}", next);
 
 
         jq::teardown(&mut jq_state);
